@@ -6,4 +6,4 @@ spacy==3.8.2
 redlines==0.4.2
 
 # python -m spacy download pt_core_news_sm 
-pt-core-news-sm==3.8.0
+# pt-core-news-sm==3.8.0
