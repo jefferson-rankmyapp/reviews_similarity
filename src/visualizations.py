@@ -1,4 +1,5 @@
 import streamlit as st
+import plotly
 import plotly.express as px
 
 # Função para exibir os indicadores gerais
