@@ -1,5 +1,5 @@
 import streamlit as st
-from src.data_processing import processar_csv, extrair_keywords
+from src.data_processing import processar_csv, extrair_keywords, extrair_bigramas
 from src.visualizations import exibir_indicadores, grafico_similaridade_vs_tamanho
 from src.text_analysis import destacar_diferencas
 
@@ -11,10 +11,10 @@ uploaded_file = st.file_uploader("Escolha um arquivo CSV", type="csv")
 
 # Processamento
 if uploaded_file is not None:
-    st.write("Processando...")
+    st.info("Processando...")
     try:
         df = processar_csv(uploaded_file)
-        st.write("Arquivo processado com sucesso!")
+        st.success("Arquivo processado com sucesso!")
         
         # Exibir indicadores gerais e gráficos
         exibir_indicadores(df)
@@ -27,9 +27,10 @@ if uploaded_file is not None:
             
             # Extração de keywords e sinônimos
             keywords, palavras_relacionadas = extrair_keywords(row['review'])
+            bigramas = extrair_bigramas(row['review'])
             
             st.markdown(f"**Keywords**: {', '.join(keywords)}")
-            st.markdown(f"**Palavras Relacionadas**: {', '.join(palavras_relacionadas)}")
+            st.markdown(f"**Bigramas**: {', '.join(bigramas)}")
             
             st.write("---")
             st.markdown(f"**Resposta IA**: {row['reply']}")
@@ -41,4 +42,4 @@ if uploaded_file is not None:
                
 
     except Exception as e:
-        st.write(f"Ocorreu um erro ao processar o arquivo: {e}")
+        st.error(f"Ocorreu um erro ao processar o arquivo: {e}")
