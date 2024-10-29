@@ -4,6 +4,7 @@ nltk==3.9.1
 scikit-learn==1.5.2
 spacy==3.8.2
 redlines==0.4.2
+plotly
 
 # python -m spacy download pt_core_news_sm 
 pt_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.8.0/pt_core_news_sm-3.8.0-py3-none-any.whl#sha256=c304fa04db3af73cd08a250feacf560506e15a2ec2469bd1b09f06847f6b455c
